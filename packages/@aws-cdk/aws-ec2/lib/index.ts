@@ -1,6 +1,7 @@
 export * from './connections';
 export * from './instance-types';
 export * from './machine-image';
+export * from './port-range';
 export * from './security-group';
 export * from './security-group-rule';
 export * from './vpc';

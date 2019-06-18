@@ -203,7 +203,7 @@ export interface SelectedSubnets {
   /**
    * Dependency representing internet connectivity for these subnets
    */
-  readonly internetConnectedDependency: IDependable;
+  readonly internetConnectivityEstablished: IDependable;
 }
 
 /**
@@ -265,7 +265,7 @@ abstract class VpcBase extends Resource implements IVpc {
       subnetIds: subnets.map(s => s.subnetId),
       availabilityZones: subnets.map(s => s.availabilityZone),
       routeTableIds: subnets.map(s => s.routeTableId).filter(notUndefined), // Possibly don't have this information
-      internetConnectedDependency: tap(new CompositeDependable(), d => subnets.forEach(s => d.add(s.internetConnectivityEstablished))),
+      internetConnectivityEstablished: tap(new CompositeDependable(), d => subnets.forEach(s => d.add(s.internetConnectivityEstablished))),
     };
   }
 
